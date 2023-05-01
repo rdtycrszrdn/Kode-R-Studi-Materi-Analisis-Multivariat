@@ -1,0 +1,27 @@
+---
+title: "Analisis Klaster"
+author: "Arditya Criszardin"
+date: "2023-05-01"
+output: html_document
+---
+
+```{r}
+# Memasang paket "stats" jika belum terpasang
+# install.packages("stats")
+
+# Memuat data
+my_data <- read.csv("my_data.csv")
+
+# Melakukan Analisis Klaster dengan menggunakan paket "stats"
+my_cluster <- kmeans(my_data, centers = 3)
+
+# Menampilkan hasil Analisis Klaster
+print(my_cluster)
+
+# Menampilkan plot klaster
+plot(my_data, col = my_cluster$cluster)
+
+# Menampilkan statistik klaster
+aggregate(my_data, by = list(my_cluster$cluster), mean)
+```
+
